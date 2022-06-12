@@ -36,11 +36,15 @@ function App() {
   const selectedTasks = tasksTypes[filter]
 
   const addTask = () => {
+    if (inputValue.length === 0) {
+      return
+    }
     const newTask = {
       id: Math.random(),
       description: inputValue,
       checked: false,
     }
+
     setTasksData([...tasksData, newTask])
     setInputValue('')
   }
