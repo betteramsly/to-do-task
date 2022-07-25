@@ -5,21 +5,14 @@ import { TaskItem } from './components/TaskItem/TaskItem'
 import './scss/global.scss'
 import styles from './scss/modal.module.scss'
 
-const tasks = [
-  {
-    id: 1,
-    description: 'Тестовое задание',
-    checked: false,
-  },
-  {
-    id: 2,
-    description: 'Тестовое задание 2',
-    checked: true,
-  },
-]
+export type Task = {
+  id: number
+  description: string
+  checked: boolean
+}
 
 function App() {
-  const [tasksData, setTasksData] = useState(tasks)
+  const [tasksData, setTasksData] = useState<Task[]>([])
   const [inputValue, setInputValue] = useState('')
   const [filter, setFilter] = useState('all') // 'all' 'active' 'completed'
 

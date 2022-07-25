@@ -1,9 +1,19 @@
 import clsx from 'clsx'
 import React from 'react'
+import { Task } from '../../App'
 
 import styles from './TaskItem.module.scss'
 
-export const TaskItem = (props) => {
+type TasksItemProps = {
+  key?: string
+  id?: number
+  description?: string
+  checked?: boolean
+  setTasksData?: (tasks: Task[]) => void
+  tasks?: Task[]
+}
+
+export const TaskItem: React.FC<TasksItemProps> = (props) => {
   const checkTask = () => {
     const newTasks = props.tasks.map((item) => {
       return item.id === props.id ? { ...item, checked: !item.checked } : item
